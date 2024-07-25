@@ -4,6 +4,7 @@ public class hashMap<K extends Comparable<K>, V> {
     private KVPair<K, V>[] table;
     private int size;
     private final K EMPTYKEY = null;
+    private KVPair<K,V> e = null;
     private static final int INITIAL_CAPACITY = 16;
 
     public hashMap() {
@@ -28,16 +29,16 @@ public class hashMap<K extends Comparable<K>, V> {
         size++;
     }
 
-    public V hashSearch(K K) {
+    public boolean hashSearch(K K) {
     	 int home;              // Home position for K
          int pos = home = h(K); // Initial position is the home slot
          for (int i = 1;
               (K != (table[pos]).getKey()) && (EMPTYKEY != (table[pos]).getKey());
               i++) {
-           pos = (home + p(K, i)) % M; // Next on probe sequence
+           pos = (home + p(i)) % size; // Next on probe sequence
               }
          if (K == (table[pos]).getKey()) {   // Found it
-           e = HT[pos];
+           e = table[pos];
            return true;
          }
          else { return false; }            // K not in hash table
