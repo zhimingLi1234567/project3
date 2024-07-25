@@ -1,7 +1,7 @@
 import java.util.*;
 
-public class hashMap<K extends Comparable<K>, V> {
-    private KVPair<K, V>[] table;
+public class hashMap {
+    private KVPair[] table;
     private int size;
     private final K EMPTYKEY = null;
     private KVPair<K,V> e = null;

@@ -16,13 +16,12 @@
 // public class KVPair<K, V> implements Comparable<KVPair<K, V>> {
 // Another Implementation choice is to require KPair to implement Comparable not
 // K
-public class KVPair<K extends Comparable<K>, V>
-    implements Comparable<KVPair<K, V>> {
+public class KVPair{
 
     // the object to be a key
-    private K key;
+    private int key;
     // the object to be the value at the key
-    private V value;
+    private Seminar value;
     
     private boolean otherCompare;
 
@@ -35,7 +34,7 @@ public class KVPair<K extends Comparable<K>, V>
      * @param val
      *            the value for the KVPair
      */
-    public KVPair(K strKey, V val) {
+    public KVPair(int strKey, Seminar val) {
         this.key = strKey;
         this.value = val;
         this.otherCompare = false;
@@ -47,7 +46,7 @@ public class KVPair<K extends Comparable<K>, V>
      *
      * @return the key of the KVPair
      */
-    public K getKey() {
+    public int getKey() {
         return key;
     }
 
@@ -57,7 +56,7 @@ public class KVPair<K extends Comparable<K>, V>
      *
      * @return the value that the KVPair holds
      */
-    public V getValue() {
+    public Seminar getValue() {
         return value;
     }
     
@@ -77,39 +76,39 @@ public class KVPair<K extends Comparable<K>, V>
     public String toString() {
         return String.format("%s, %s", getKey(), getValue());
     }
-
-
-    /**
-     * You should implement the compareTo method from the Comparable interface.
-     * This will be used to easily compare two KVPair objects depending on if 
-     * they are getting compared to by value. Otherwise, they will be compared 
-     * to by key.
-     *
-     * @param o
-     * @return
-     */
-    @Override
-    public int compareTo(KVPair<K, V> o) {
-        if (o.otherCompare) {
-            if (getValue().equals(o.getValue())) {
-                return 0;
-            }
-        }
-        return getKey().compareTo(o.getKey());
-    }
-    
-    /**
-     * Checks if the pairs are equal based on key and value.
-     * 
-     * @param other The other pair
-     * @return The result of if they are equal or not
-     */
-    @SuppressWarnings("unchecked")
-    public boolean equals(Object other) {
-        if (other == null || other.getClass() != this.getClass()) {
-            return false;
-        }
-        KVPair<K, V> otherKV = (KVPair<K, V>) other;
-        return otherKV.key == this.key && otherKV.value == this.value;
-    }
+//
+//
+//    /**
+//     * You should implement the compareTo method from the Comparable interface.
+//     * This will be used to easily compare two KVPair objects depending on if 
+//     * they are getting compared to by value. Otherwise, they will be compared 
+//     * to by key.
+//     *
+//     * @param o
+//     * @return
+//     */
+//    @Override
+//    public int compareTo(KVPair<K, V> o) {
+//        if (o.otherCompare) {
+//            if (getValue().equals(o.getValue())) {
+//                return 0;
+//            }
+//        }
+//        return getKey().compareTo(o.getKey());
+//    }
+//    
+//    /**
+//     * Checks if the pairs are equal based on key and value.
+//     * 
+//     * @param other The other pair
+//     * @return The result of if they are equal or not
+//     */
+//    @SuppressWarnings("unchecked")
+//    public boolean equals(Object other) {
+//        if (other == null || other.getClass() != this.getClass()) {
+//            return false;
+//        }
+//        KVPair<K, V> otherKV = (KVPair<K, V>) other;
+//        return otherKV.key == this.key && otherKV.value == this.value;
+//    }
 }
